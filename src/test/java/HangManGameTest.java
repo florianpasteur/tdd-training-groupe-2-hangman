@@ -74,4 +74,42 @@ public class HangManGameTest {
 
         assertThat(guess).isEqualTo(Guess.CORRECT);
     }
+
+    @Test
+    void should_test_8() {
+        HangManGame game = new HangManGame("HELLO WORLD");
+
+        boolean wordComplete = game.wordComplete();
+
+        assertThat(wordComplete).isFalse();
+    }
+
+    @Test
+    void should_test_9() {
+        HangManGame game = new HangManGame("HELLO WORLD");
+        game.guess('H');
+        game.guess('E');
+        game.guess('L');
+        game.guess('O');
+        game.guess('W');
+        game.guess('R');
+        game.guess('D');
+
+        boolean wordComplete = game.wordComplete();
+
+        assertThat(wordComplete).isTrue();
+    }
+
+    @Test
+    void should_test_10() {
+        HangManGame game = new HangManGame("HELLO WORLD");
+        game.guess('H');
+        game.guess('E');
+        game.guess('L');
+
+
+        boolean wordComplete = game.wordComplete();
+
+        assertThat(wordComplete).isFalse();
+    }
 }

@@ -29,4 +29,8 @@ public class HangManGame {
         guessedLetters.add(letterAsString);
         return secretWord.contains(letterAsString) ? Guess.CORRECT : Guess.INCORRECT;
     }
+
+    public boolean wordComplete() {
+        return !this.hint().contains("_");
+    }
 }
