@@ -25,10 +25,8 @@ public class HangManGame {
     }
 
     public Guess guess(char letter) {
-        guessedLetters.add(letter + "");
-        if (secretWord.contains(letter + "")) {
-            return Guess.CORRECT;
-        }
-        return Guess.INCORRECT;
+        String letterAsString = letter + "";
+        guessedLetters.add(letterAsString);
+        return secretWord.contains(letterAsString) ? Guess.CORRECT : Guess.INCORRECT;
     }
 }
