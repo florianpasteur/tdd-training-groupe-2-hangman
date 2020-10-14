@@ -1,10 +1,11 @@
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class HangManGame {
     private final String secretWord;
-    private char letter;
+    private List<String> guessedLetters = new ArrayList<>();
 
     public HangManGame(String secretWord) {
         this.secretWord = secretWord;
@@ -13,7 +14,7 @@ public class HangManGame {
     public String hint() {
         return Stream.of(this.secretWord.split(""))
                 .map(letter -> {
-                    if (letter.equals(this.letter + "")) {
+                    if (guessedLetters.contains(letter)) {
                         return letter;
                     }
                     if (letter.matches("[a-zA-Z]")) {
@@ -24,6 +25,6 @@ public class HangManGame {
     }
 
     public void guess(char letter) {
-        this.letter = letter;
+        guessedLetters.add(letter + "");
     }
 }
