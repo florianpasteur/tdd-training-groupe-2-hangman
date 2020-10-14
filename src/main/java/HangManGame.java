@@ -1,12 +1,11 @@
 public class HangManGame {
-    private String secretWord;
+    private final String secretWord;
 
     public HangManGame(String secretWord) {
-
         this.secretWord = secretWord;
     }
 
     public String hint() {
-        return "_".repeat(secretWord.length());
+        return secretWord.replaceAll("[a-zA-Z]", "_");
     }
 }

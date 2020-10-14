@@ -26,4 +26,13 @@ public class HangManGameTest {
 
         assertThat(hint).isEqualTo("___");
     }
+
+    @Test
+    void should_test_3() {
+        HangManGame game = new HangManGame("HELLO WORLD");
+
+        String hint = game.hint();
+
+        assertThat(hint).isEqualTo("_____ _____");
+    }
 }
