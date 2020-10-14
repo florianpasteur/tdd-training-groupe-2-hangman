@@ -56,4 +56,22 @@ public class HangManGameTest {
 
         assertThat(hint).isEqualTo("H_LL_ ___L_");
     }
+
+    @Test
+    void should_test_6() {
+        HangManGame game = new HangManGame("HELLO WORLD");
+
+        Guess guess = game.guess('B');
+
+        assertThat(guess).isEqualTo(Guess.INCORRECT);
+    }
+
+    @Test
+    void should_test_7() {
+        HangManGame game = new HangManGame("HELLO WORLD");
+
+        Guess guess = game.guess('D');
+
+        assertThat(guess).isEqualTo(Guess.CORRECT);
+    }
 }

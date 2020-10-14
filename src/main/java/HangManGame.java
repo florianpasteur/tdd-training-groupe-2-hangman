@@ -5,7 +5,7 @@ import java.util.stream.Stream;
 
 public class HangManGame {
     private final String secretWord;
-    private List<String> guessedLetters = new ArrayList<>();
+    private final List<String> guessedLetters = new ArrayList<>();
 
     public HangManGame(String secretWord) {
         this.secretWord = secretWord;
@@ -24,7 +24,11 @@ public class HangManGame {
                 }).collect(Collectors.joining(""));
     }
 
-    public void guess(char letter) {
+    public Guess guess(char letter) {
         guessedLetters.add(letter + "");
+        if (secretWord.contains(letter + "")) {
+            return Guess.CORRECT;
+        }
+        return Guess.INCORRECT;
     }
 }
